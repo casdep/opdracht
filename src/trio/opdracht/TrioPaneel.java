@@ -27,7 +27,7 @@ class TrioPaneel extends JPanel {
         paneelZuid = new JPanel();
         paneelWest = new JPanel();
         
-        setBackground(Color.MAGENTA);
+        setBackground(Color.RED);
         
         paneelCenter.setLayout(new GridLayout(1,4));
         paneelZuid.setLayout(new BoxLayout(paneelZuid, BoxLayout.X_AXIS));
