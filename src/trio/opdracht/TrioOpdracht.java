@@ -11,10 +11,10 @@ import javax.swing.*;
 public class TrioOpdracht extends JFrame{
     public static void main(String[] args) {
         JFrame frame = new TrioOpdracht();
-        frame.setSize (750,200);
-        frame.setLocation(400,280);
+        frame.setSize (750,600);
+        frame.setLocation(200,100);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setTitle("Trio opdacht");
+        frame.setTitle("Trio opdacht, Netflix Statistix");
         frame.setContentPane( new TrioPaneel());
         frame.setVisible(true);
     }

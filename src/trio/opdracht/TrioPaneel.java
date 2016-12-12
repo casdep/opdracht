@@ -9,6 +9,8 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Container;
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javafx.scene.control.ComboBox;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
@@ -20,45 +22,76 @@ import javax.swing.JPanel;
  * @author Cas
  */
 class TrioPaneel extends JPanel {
-    private JPanel paneelCenter, paneelZuid, paneelWest;
-    private JLabel centerLabel, zuidLabel;
-    private ComboBox serie;
-    private JButton overzicht1, overzicht2, overzicht3, overzicht4;
+    private JPanel panelCenter, panelSouth, panelWest;
+    private JLabel centerLabel, informatieLabel, labelSouth;
+    private ComboBox comboboxSerie;
+    private JButton overviewOneButton, overviewTwoButton, overviewThreeButton, overviewFourButton;
+    private ActionListener overviewOneHandler, overviewTwoHandler, overviewThreeHandler, overviewFourHandler;
     public TrioPaneel() {
         setLayout (new BorderLayout());
-        setBackground(Color.GREEN);
         
-        paneelCenter = new JPanel();
-        paneelZuid = new JPanel();
-        paneelWest = new JPanel();
+        panelCenter = new JPanel();
+        panelSouth = new JPanel();
+        panelWest = new JPanel();
 
         
-        paneelCenter.setLayout(new GridLayout(1,4));
-        paneelZuid.setLayout(new BoxLayout(paneelZuid, BoxLayout.X_AXIS));
-        paneelWest.setLayout(new BoxLayout(paneelWest, BoxLayout.Y_AXIS));
+        panelCenter.setLayout(new GridLayout(2,1));
+        panelSouth.setLayout(new BoxLayout(panelSouth, BoxLayout.X_AXIS));
+        panelWest.setLayout(new BoxLayout(panelWest, BoxLayout.Y_AXIS));
+        
+        overviewOneHandler = new overviewOneHandler();
+        overviewTwoHandler = new overviewTwoHandler();
+        overviewThreeHandler = new overviewThreeHandler();
+        overviewFourHandler = new overviewFourHandler();
+        
+        overviewOneButton = new JButton("Overview 1");
+            overviewOneButton.addActionListener(overviewOneHandler);
+        overviewTwoButton = new JButton("Overview 2");
+            overviewTwoButton.addActionListener ( overviewTwoHandler);
+        overviewThreeButton = new JButton("Overview 3");
+            overviewThreeButton.addActionListener ( overviewThreeHandler);
+        overviewFourButton = new JButton("Overview 4");
+            overviewFourButton.addActionListener ( overviewFourHandler);
+        
+        centerLabel = new JLabel ("Selecteer serie");
+        informatieLabel = new JLabel ("Gemiddeld % bekenen per aflevering");
+        
+        labelSouth =  new JLabel ("Netflix statistix, ifnromatica 20One6, 2ThreeIVTOneC2, Cas de Pender, Max Koning, Kevin van der Kaa");
+        
+        add(panelWest, BorderLayout.WEST);
+        add(panelCenter, BorderLayout.CENTER);
+        add(panelSouth, BorderLayout.SOUTH);
         
         
+        panelCenter.add(centerLabel);
         
-        overzicht1 = new JButton(" Overzicht 1");
-        overzicht2 = new JButton(" Overzicht 2");
-        overzicht3 = new JButton(" Overzicht 3");
-        overzicht4 = new JButton(" Overzicht 4");
+        panelCenter.add(informatieLabel);
         
-        centerLabel = new JLabel (" Extra test voor Center paneel");
-        zuidLabel =  new JLabel (" Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.")
+        panelSouth.add(labelSouth);
         
-        add(paneelWest, BorderLayout.WEST);
-        add(paneelCenter, BorderLayout.CENTER);
-        add(paneelZuid, BorderLayout.SOUTH);
-        
-        
-        paneelCenter.add(centerLabel);
-        paneelZuid.add(zuidLabel);
-        
-        paneelWest.add(overzicht1);
-        paneelWest.add(overzicht2);
-        paneelWest.add(overzicht3);
-        paneelWest.add(overzicht4);
+        panelWest.add(overviewOneButton);
+        panelWest.add(overviewTwoButton);
+        panelWest.add(overviewThreeButton);
+        panelWest.add(overviewFourButton);
    }
-    
+class overviewOneHandler implements ActionListener{
+public void actionPerformed( ActionEvent e ){
+new OverviewTwo();
+       }
+    }        
+class overviewTwoHandler implements ActionListener{
+public void actionPerformed( ActionEvent e ){
+new OverviewTwo();
+       }
+    } 
+class overviewThreeHandler implements ActionListener{
+public void actionPerformed( ActionEvent e ){
+new OverviewTwo();
+       }
+    } 
+class overviewFourHandler implements ActionListener{
+public void actionPerformed( ActionEvent e ){
+new OverviewTwo();
+       }
+    } 
 }
